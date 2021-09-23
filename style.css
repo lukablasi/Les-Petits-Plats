@@ -54,3 +54,47 @@ button {
     font-size: 12px;
     height: 130px;
 }
+
+.dropdown-menu.show {
+    display:grid;
+    max-height: 300px;
+    grid-template-columns: 200px 200px 200px;
+}
+
+.ingredients-menu {
+    background-color: blue;
+    overflow: hidden;
+}
+
+.ingredients-input {
+    width: 90px;
+    color:#fff;
+    background-color:#0d6efd;
+    border: none;
+}
+
+::placeholder {
+    opacity:1;
+}
+
+.device-input {
+    width: 90px;
+    color:#fff;
+    background-color:#198754;
+    border: none;
+}
+
+.ustensils-input {
+    width: 90px;
+    color:#fff;
+    background-color:#dc3545;
+    border: none;
+}
+
+.device-menu {
+    background-color:#198754;
+}
+
+.ustensil-menu {
+    background-color:#dc3545;
+}
