@@ -1,3 +1,19 @@
+//message if no results in search
+// function checkIfAnyResult() {
+//     const noResults = document.getElementById('no-results');
+//     const recepies = document.querySelectorAll('.recipe-container')
+//     for (let recipe of recepies) {
+//         if(recipe.classList.contains('d-block')) {
+//             noResults.classList.add('d-none');
+//             noResults.classList.remove('d-block');
+//         } else {
+//             noResults.classList.remove('d-none');
+//             noResults.classList.add('d-block');
+//         }
+//     }
+    
+// }
+
 //pulling data from API
 async function apiRequest() {
     try {
@@ -27,6 +43,14 @@ async function populateRecipes(filter) {
         let lowerAllIngredients = allIngredients.map(v => v.toLowerCase());
         return lowName.includes(filter) || recipe.name.includes(filter) || lowDescription.includes(filter) || recipe.description.includes(filter) || allIngredients.includes(filter) || lowerAllIngredients.includes(filter)
     } )
+    const noResults = document.getElementById('no-results');
+    if(filteredRecipes.length > 0) {
+        noResults.classList.add('d-none');
+        noResults.classList.remove('d-block');
+    } else {
+        noResults.classList.remove('d-none');
+        noResults.classList.add('d-block');
+    }
     for (let recipe of filteredRecipes) {
         const recipeContainer = document.createElement('div');
         const recipePlaceholder = document.createElement('img');
@@ -107,6 +131,9 @@ async function populateRecipes(filter) {
         recipeDescription.classList.add('col-6');
         recipeDescription.classList.add('description');
         recipeDescription.classList.add('p-3');
+        
+        addTag();
+        
     }
     }
     
@@ -119,6 +146,7 @@ searchBar.addEventListener('keyup', (e) => {
     if (e.target.value.length > 2) {
         let filter = e.target.value.toLowerCase();
         populateRecipes(filter);
+        
     } else {
         let filter = '';
         populateRecipes(filter)
@@ -182,13 +210,16 @@ uniqueIngredients.forEach(function(ingredient) {
 
 //ingredients button handler
 const ingredientsInput = document.getElementById('ingredients-input');
-ingredientsInput.addEventListener('click', () => {
+ingredientsInput.addEventListener('click', (e) => {
+
     ingredientsSelectBox.classList.add('show');
+    ingredientsButton.setAttribute('aria-expanded', true);
+
 })
 
-ingredientsInput.addEventListener('blur', (e) => {
+document.addEventListener('click', (e) => {
     ingredientsSelectBox.classList.remove('show');
-    e.target.value = '';
+    ingredientsButton.setAttribute('aria-expanded', false)
 })
 
 const lowerUniqueIngredients = uniqueIngredients.map(v => v.toLowerCase());
@@ -262,14 +293,17 @@ uniqueDevices.forEach(function(device) {
 });
 
 //devices button handler
+const deviceButton = document.getElementById('device-button');
 const devicesInput = document.getElementById('device-input');
 devicesInput.addEventListener('click', () => {
     deviceMenu.classList.add('show');
+    deviceButton.setAttribute('aria-expanded', true);
 })
 
-devicesInput.addEventListener('blur', (e) => {
+document.addEventListener('click', (e) => {
     deviceMenu.classList.remove('show');
-    e.target.value = '';
+    deviceButton.setAttribute('aria-expanded', false);
+
 })
 
 const lowerUniqueDevices = uniqueDevices.map(v => v.toLowerCase());
@@ -344,14 +378,16 @@ uniqueUstensils.forEach(function(ustensil) {
 });
 
 //ustensils button handler
+const ustensilsButton = document.getElementById('ustensils-button');
 const ustensilsInput = document.getElementById('ustensils-input');
 ustensilsInput.addEventListener('click', () => {
     ustensilMenu.classList.add('show');
+    ustensilsButton.setAttribute('aria-expanded', true);
 })
 
-ustensilsInput.addEventListener('blur', (e) => {
+document.addEventListener('click', (e) => {
     ustensilMenu.classList.remove('show');
-    e.target.value = '';
+    ustensilsButton.setAttribute('aria-expanded', true);
 })
 
 const lowerUniqueUstensils = uniqueUstensils.map(v => v.toLowerCase());
@@ -400,22 +436,34 @@ function addTag() {
 // }
     const allRecipes = document.getElementsByClassName('recipe-container');
     const selectedTags = document.getElementById('selected-tags').children;
-
+    if (selectedTags.length == 0) {
+        
+        for (let recipe of allRecipes) {
+            recipe.classList.remove('d-none')
+            recipe.classList.add('d-block')
+        }
+    } else {
     for (let recipe of allRecipes) {
+        recipe.classList.remove('d-none')
+            recipe.classList.add('d-block')
         for (let tag of selectedTags) {
             tag = tag.innerHTML.split(' ').join('-').toLowerCase();
-            console.log(tag)
+            
             if (recipe.classList.contains(tag)) {
-                            recipe.classList.remove('d-none')
+                            // recipe.classList.remove('d-none')
                             recipe.classList.add('d-block')
                             
-                        } else {
+                        } else  {
                             recipe.classList.remove('d-block')
                             recipe.classList.add('d-none')
                             
                         }
         }
-    }
+    }}
+
+    
+
+
     
     // for (let tag of selectedTags) {
     //     tag = tag.innerHTML.split(' ').join('-').toLowerCase();
