@@ -1,18 +1,4 @@
-//message if no results in search
-// function checkIfAnyResult() {
-//     const noResults = document.getElementById('no-results');
-//     const recepies = document.querySelectorAll('.recipe-container')
-//     for (let recipe of recepies) {
-//         if(recipe.classList.contains('d-block')) {
-//             noResults.classList.add('d-none');
-//             noResults.classList.remove('d-block');
-//         } else {
-//             noResults.classList.remove('d-none');
-//             noResults.classList.add('d-block');
-//         }
-//     }
-    
-// }
+
 
 //pulling data from API
 async function apiRequest() {
@@ -32,7 +18,9 @@ async function populateRecipes(filter) {
     const api = await apiRequest();
     const container = document.getElementById('recipes');
     removeAllChildNodes(container);
-    const filteredRecipes = recipes.filter( recipe => {
+    const filteredRecipes = [];
+    for (let recipe of recipes)  {
+        
         let lowName = recipe.name.toLowerCase();
         let lowDescription = recipe.description.toLowerCase();
         let allIngredients = [];
@@ -41,8 +29,11 @@ async function populateRecipes(filter) {
             allIngredients.push(ingredient.ingredient)
         }
         let lowerAllIngredients = allIngredients.map(v => v.toLowerCase());
-        return lowName.includes(filter) || recipe.name.includes(filter) || lowDescription.includes(filter) || recipe.description.includes(filter) || allIngredients.includes(filter) || lowerAllIngredients.includes(filter)
-    } )
+        if (lowName.includes(filter) || recipe.name.includes(filter) || lowDescription.includes(filter) || recipe.description.includes(filter) || allIngredients.includes(filter) || lowerAllIngredients.includes(filter)) {
+            filteredRecipes.push(recipe)
+            
+        }
+    } 
     const noResults = document.getElementById('no-results');
     if(filteredRecipes.length > 0) {
         noResults.classList.add('d-none');
