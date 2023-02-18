@@ -5,4 +5,5 @@ Live version:
 https://lukablasi.github.io/SearchTool/
 
 <h2>Screenshots</h2>
+
 ![](https://github.com/lukablasi/SearchTool/blob/master/screenshots/mainpage.PNG)
