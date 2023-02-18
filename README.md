@@ -7,3 +7,8 @@ https://lukablasi.github.io/SearchTool/
 <h2>Screenshots</h2>
 
 ![](https://github.com/lukablasi/SearchTool/blob/master/screenshots/mainpage.PNG)
+
+
+![](https://github.com/lukablasi/SearchTool/blob/master/screenshots/firstsearch.PNG)
+
+![](https://github.com/lukablasi/SearchTool/blob/master/screenshots/secondsearch.PNG)
