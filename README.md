@@ -6,14 +6,27 @@ https://lukablasi.github.io/SearchTool/
 
 <h2>Screenshots</h2>
 Main Page
+
 ![](https://github.com/lukablasi/SearchTool/blob/master/screenshots/mainpage.PNG)
 
-<br>
+Search Result
 
 ![](https://github.com/lukablasi/SearchTool/blob/master/screenshots/firstsearch.PNG)
+
 Search Result
-<br>
 
 ![](https://github.com/lukablasi/SearchTool/blob/master/screenshots/secondsearch.PNG)
-Search Result
-<br>
+
+
+<h2>Technologies Used<h2/>
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>Bootstrap</li>
+    <li>JavaScript</li>
+  </ul>
+  
+  <h2>Developed By</h2>
+  Lukasz Milcz
+  <br>
+  https://www.linkedin.com/in/lukablasi/
