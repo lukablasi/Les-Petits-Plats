@@ -18,7 +18,7 @@ Search Result
 ![](https://github.com/lukablasi/SearchTool/blob/master/screenshots/secondsearch.PNG)
 
 
-<h2>Technologies Used<h2/>
+<h2>Technologies Used</h2>
   <ul>
     <li>HTML</li>
     <li>CSS</li>
