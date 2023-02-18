@@ -8,7 +8,12 @@ https://lukablasi.github.io/SearchTool/
 
 ![](https://github.com/lukablasi/SearchTool/blob/master/screenshots/mainpage.PNG)
 
+<br>
 
 ![](https://github.com/lukablasi/SearchTool/blob/master/screenshots/firstsearch.PNG)
 
+<br>
+
 ![](https://github.com/lukablasi/SearchTool/blob/master/screenshots/secondsearch.PNG)
+
+<br>
